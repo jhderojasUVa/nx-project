@@ -14,6 +14,13 @@
         "tsConfig": "workspaces/library/math-lib/tsconfig.lib.json",
         "assets": ["workspaces/library/math-lib/*.md"]
       }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../../coverage/workspaces/library/math-lib"
+      }
     }
   }
 }

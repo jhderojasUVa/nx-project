@@ -39,7 +39,7 @@ To run the Next.js application:
 nx serve nextjs-example-app
 ```
 
-To run tests for libraries:
+To run tests for libraries (using **Vitest**):
 ```bash
 nx test math-lib
 nx test axios-lib
@@ -60,7 +60,8 @@ npx nx run-many --target=build --projects=axios-lib,math-lib
 This project is configured to publish libraries to **GitHub Packages**.
 
 - **Configuration**: Libraries in `workspaces/library` have `publishConfig` pointing to `https://npm.pkg.github.com`.
-- **Automation**: A GitHub Action is set up in `.github/workflows/publish.yml` that triggers on pushes to `main`.
+- **Semantic Versioning**: We use `nx release` to automatically bump versions, generate `CHANGELOG.md` files, and create release tags based on Conventional Commits.
+- **Automation**: A GitHub Action is set up in `.github/workflows/publish.yml` that triggers on pushes to `main`. It handles the versioning, building, and publishing steps.
 - **Manual Trigger**: You can also trigger the "Publish Libraries to GitHub Packages" workflow manually from the GitHub Actions tab.
 
 ## Conventional Commits
@@ -70,6 +71,13 @@ We enforce the [Conventional Commits](https://www.conventionalcommits.org/) spec
 - **Valid Types**: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`.
 - **Commit Hook**: husky will prevent commits that do not follow the standard.
 - **Example**: `feat: add math-lib utility functions`
+
+## 🤖 AI Agents
+
+This workspace includes definitions for AI Agents to assist with development and testing, located in `.github/agents/`:
+
+- **Developer Agent** (`developer.agent.md`): Responsible for writing clean, modular, and well-documented code.
+- **Tester Agent** (`tester.agent.md`): Acts as a QA engineer, writing comprehensive tests (using Vitest) and reviewing code.
 
 ## Add new projects
 
