@@ -101,9 +101,8 @@
       "conventionalCommits": true,
       "fallbackCurrentVersionResolver": "disk",
       "git": {
-        "commit": true,
-        "commitMessage": "chore(release): publish {version} [skip ci]",
-        "push": true
+        "commit": false,
+        "push": false
       }
     },
     "changelog": {
