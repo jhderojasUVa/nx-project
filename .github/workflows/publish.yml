@@ -1,0 +1,43 @@
+name: Publish Libraries to GitHub Packages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@nx-project'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Libraries
+        run: npx nx run-many --target=build --projects=axios-lib,math-lib
+
+      - name: Publish Libraries
+        run: |
+          for package in axios-lib math-lib; do
+            echo "Publishing $package..."
+            cd dist/workspaces/library/$package
+            npm publish
+            cd -
+          done
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
