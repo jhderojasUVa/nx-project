@@ -34,12 +34,12 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Bump versions with Nx Release (semantic versioning)
-        run: npx nx release version --skip-publish
+        run: npx nx release version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate changelogs and create git tags
-        run: npx nx release changelog --skip-publish
+        run: npx nx release changelog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
