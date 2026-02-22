@@ -27,6 +27,12 @@
       "options": {
         "reportsDirectory": "../../../coverage/workspaces/library/axios-lib"
       }
+    },
+    "docs": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "typedoc workspaces/library/axios-lib/src/index.ts --out docs/axios-lib"
+      }
     }
   }
 }

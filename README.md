@@ -1,8 +1,17 @@
-# MyWorkspace
+# MyWorkspace (Nx Publishing & Pipelines Example)
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+✨ **This repository serves as a complete, working example of how to use GitHub Actions pipelines and an Nx modular workspace to build, version, and publish packages to GitHub Packages.** ✨
+
+It demonstrates:
+- 📦 Managing multiple libraries in a single Nx monorepo (`math-lib`, `axios-lib`)
+- 🤖 Automated Semantic Versioning and Changelog generation using `nx release`
+- 🚥 Automated CI pipelines testing code on PRs (`pr.yml`)
+- 🚀 Automated CD pipelines handling the publishing flow to GitHub Packages (`publish.yml`)
+- 🔒 Respecting branch protection rules while automating releases via PAT (Personal Access Token) bots
+
+---
 
 [Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
 

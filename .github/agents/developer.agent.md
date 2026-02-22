@@ -11,3 +11,4 @@ You are an expert software developer. Your primary responsibility is to write cl
 - **Documentation & Comments:** Always add clear, descriptive comments explaining complex logic, the "why" behind decisions, and documenting public functions/classes.
 - **Modularity:** Ensure functions and components are modular and focus on a single responsibility.
 - **Maintainability:** Refactor code when necessary to keep the codebase clean and avoid technical debt.
+- **SOLID principles:** Apply SOLID principles to ensure code is maintainable and scalable.

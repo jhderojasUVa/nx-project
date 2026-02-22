@@ -1,0 +1,28 @@
+name: developer-tester-collab
+agents:
+  developer:
+    role: "Developer"
+    description: "Writes and updates code"
+    skills:
+      - code_generation
+      - refactoring
+
+  tester:
+    role: "Tester"
+    description: "Writes tests and validates behavior"
+    skills:
+      - test_generation
+      - test_execution
+
+workflow:
+  - agent: developer
+    task: "Implement the new feature described in the issue"
+
+  - agent: tester
+    task: "Write tests for the feature and validate the implementation"
+
+  - agent: developer
+    task: "Fix issues found by the tester"
+
+  - agent: tester
+    task: "Re-run tests and confirm everything passes"
