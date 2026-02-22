@@ -99,20 +99,17 @@
     "versionPlans": false,
     "version": {
       "conventionalCommits": true,
-      "fallbackCurrentVersionResolver": "disk",
-      "git": {
-        "commit": true,
-        "commitMessage": "chore(release): publish {version} [skip ci]",
-        "push": true
-      }
+      "fallbackCurrentVersionResolver": "disk"
     },
     "changelog": {
       "workspaceChangelog": false,
-      "projectChangelogs": true,
-      "git": {
-        "tag": true,
-        "push": true
-      }
+      "projectChangelogs": true
+    },
+    "git": {
+      "commit": true,
+      "commitMessage": "chore(release): publish {version} [skip ci]",
+      "tag": true,
+      "push": true
     }
   }
 }
