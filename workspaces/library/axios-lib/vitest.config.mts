@@ -7,15 +7,15 @@ export default defineConfig(() => ({
   cacheDir: '../../../node_modules/.vite/workspaces/library/axios-lib',
   plugins: [nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
   test: {
-    name: '@jhderojasUVa/nx-projext/axios-lib',
+    name: '@jhderojasUVa/axios-lib',
     watch: false,
     globals: true,
-    environment: 'jsdom',
-    include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    environment: 'node',
+    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     reporters: ['default'],
     coverage: {
       reportsDirectory: '../../../coverage/workspaces/library/axios-lib',
-      provider: 'v8' as const,
+      provider: 'v8',
     },
   },
 }));

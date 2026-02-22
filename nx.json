@@ -93,7 +93,8 @@
   },
   "release": {
     "projects": [
-      "*"
+      "@jhderojasUVa/math-lib",
+      "@jhderojasUVa/axios-lib"
     ]
   }
 }

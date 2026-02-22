@@ -1,5 +1,5 @@
 {
-  "name": "math-lib",
+  "name": "@jhderojasUVa/math-lib",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "workspaces/library/math-lib/src",
   "projectType": "library",
@@ -7,17 +7,23 @@
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/workspaces/library/math-lib",
         "main": "workspaces/library/math-lib/src/index.ts",
         "tsConfig": "workspaces/library/math-lib/tsconfig.lib.json",
-        "assets": ["workspaces/library/math-lib/*.md"]
+        "assets": [
+          "workspaces/library/math-lib/*.md"
+        ]
       }
     },
     "test": {
       "executor": "@nx/vitest:test",
-      "outputs": ["{options.reportsDirectory}"],
+      "outputs": [
+        "{options.reportsDirectory}"
+      ],
       "options": {
         "reportsDirectory": "../../../coverage/workspaces/library/math-lib"
       }
