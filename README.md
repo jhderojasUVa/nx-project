@@ -24,6 +24,32 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 
 [More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
+## Adding Libraries
+
+To add a new library to the `workspaces/library` directory, run:
+
+```bash
+nx g @nx/js:library my-lib --directory=workspaces/library/my-lib --importPath=@nx-project/my-lib
+```
+
+## Running Tasks
+
+To run the Next.js application:
+```bash
+nx serve nextjs-example-app
+```
+
+To run tests for libraries:
+```bash
+nx test math-lib
+nx test axios-lib
+```
+
+To build the application:
+```bash
+nx build nextjs-example-app
+```
+
 ## Add new projects
 
 While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.

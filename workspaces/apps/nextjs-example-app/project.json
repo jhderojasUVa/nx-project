@@ -1,0 +1,9 @@
+{
+  "name": "nextjs-example-app",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "workspaces/apps/nextjs-example-app",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project nextjs-example-app --web",
+  "targets": {}
+}
