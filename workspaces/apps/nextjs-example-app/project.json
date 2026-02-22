@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-example-app",
+  "name": "@jhderojasUVa/nextjs-example-app",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "workspaces/apps/nextjs-example-app",
   "projectType": "application",
