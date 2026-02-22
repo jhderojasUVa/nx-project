@@ -10,20 +10,20 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      packages: write
+      contents: write      # Required for nx release to commit/push version bumps and tags
+      packages: write      # Required to publish to GitHub Packages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0   # Full history is required so nx release can read all commits for semantic versioning
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@nx-project'
+          scope: '@jhderojasUVa'
 
       - name: Install dependencies
         run: npm ci
@@ -33,11 +33,15 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Version tracking with Nx Release
-        run: npx nx release --skip-publish
+      - name: Bump versions with Nx Release (semantic versioning)
+        run: npx nx release version --skip-publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate changelogs and create git tags
+        run: npx nx release changelog --skip-publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Libraries
         run: npx nx run-many --target=build --projects=axios-lib,math-lib
@@ -47,10 +51,10 @@ jobs:
           for package in axios-lib math-lib; do
             echo "Publishing $package..."
             cd dist/workspaces/library/$package
-            
+
             PACKAGE_NAME=$(node -p "require('./package.json').name")
             PACKAGE_VERSION=$(node -p "require('./package.json').version")
-            
+
             # Check if this exact version is already published
             if npm view "$PACKAGE_NAME@$PACKAGE_VERSION" version &>/dev/null; then
               echo "Version $PACKAGE_VERSION of $PACKAGE_NAME is already published. Skipping publish."
@@ -58,7 +62,7 @@ jobs:
               echo "Version $PACKAGE_VERSION of $PACKAGE_NAME is new. Publishing..."
               npm publish
             fi
-            
+
             cd -
           done
         env:
