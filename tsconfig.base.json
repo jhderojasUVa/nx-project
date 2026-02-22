@@ -10,14 +10,24 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-project/math-lib": ["workspaces/library/math-lib/src/index.ts"],
-      "@nx-project/axios-lib": ["workspaces/library/axios-lib/src/index.ts"]
+      "@jhderojasUva/nx-project/math-lib": [
+        "workspaces/library/math-lib/src/index.ts"
+      ],
+      "@jhderojas/nx-project/axios-lib": [
+        "workspaces/library/axios-lib/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
