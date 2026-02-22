@@ -1,8 +1,9 @@
 import { CachedAxios } from './axios-lib';
 import axios from 'axios';
+import { vi, describe, it, expect, Mock } from 'vitest';
 
-jest.mock('axios');
-const mockedAxios = axios as jest.Mocked<typeof axios>;
+vi.mock('axios');
+const mockedAxios = axios as unknown as { create: Mock };
 
 describe('axiosLib', () => {
   it('should create an instance', () => {
@@ -12,7 +13,7 @@ describe('axiosLib', () => {
   });
 
   it('should cache requests', async () => {
-    const mockGet = jest.fn().mockResolvedValue({ data: 'response' });
+    const mockGet = vi.fn().mockResolvedValue({ data: 'response' });
     mockedAxios.create.mockReturnValue({
       get: mockGet
     } as any);
