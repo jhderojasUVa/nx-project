@@ -50,6 +50,27 @@ To build the application:
 nx build nextjs-example-app
 ```
 
+To build all libraries for publishing:
+```bash
+npx nx run-many --target=build --projects=axios-lib,math-lib
+```
+
+## Publishing Libraries
+
+This project is configured to publish libraries to **GitHub Packages**.
+
+- **Configuration**: Libraries in `workspaces/library` have `publishConfig` pointing to `https://npm.pkg.github.com`.
+- **Automation**: A GitHub Action is set up in `.github/workflows/publish.yml` that triggers on pushes to `main`.
+- **Manual Trigger**: You can also trigger the "Publish Libraries to GitHub Packages" workflow manually from the GitHub Actions tab.
+
+## Conventional Commits
+
+We enforce the [Conventional Commits](https://www.conventionalcommits.org/) specification using `commitlint` and `husky`.
+
+- **Valid Types**: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`.
+- **Commit Hook**: husky will prevent commits that do not follow the standard.
+- **Example**: `feat: add math-lib utility functions`
+
 ## Add new projects
 
 While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
