@@ -18,10 +18,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@jhderojasUva/nx-project/math-lib": [
+      "@jhderojasUva/math-lib": [
         "workspaces/library/math-lib/src/index.ts"
       ],
-      "@jhderojas/nx-project/axios-lib": [
+      "@jhderojas/axios-lib": [
         "workspaces/library/axios-lib/src/index.ts"
       ]
     }
