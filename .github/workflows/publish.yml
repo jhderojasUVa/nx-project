@@ -47,7 +47,18 @@ jobs:
           for package in axios-lib math-lib; do
             echo "Publishing $package..."
             cd dist/workspaces/library/$package
-            npm publish
+            
+            PACKAGE_NAME=$(node -p "require('./package.json').name")
+            PACKAGE_VERSION=$(node -p "require('./package.json').version")
+            
+            # Check if this exact version is already published
+            if npm view "$PACKAGE_NAME@$PACKAGE_VERSION" version &>/dev/null; then
+              echo "Version $PACKAGE_VERSION of $PACKAGE_NAME is already published. Skipping publish."
+            else
+              echo "Version $PACKAGE_VERSION of $PACKAGE_NAME is new. Publishing..."
+              npm publish
+            fi
+            
             cd -
           done
         env:
