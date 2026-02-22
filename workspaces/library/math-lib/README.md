@@ -43,6 +43,18 @@ const area = calculateTriangleArea(10, 5); // 25
 - `calculatePolygonArea(sides: number, sideLength: number)`: Returns the area of a regular N-sided polygon.
 - `calculatePolygonPerimeter(sides: number, sideLength: number)`: Returns the perimeter of a regular N-sided polygon.
 
+### Sphere (`sphere.ts`)
+- `calculateSphereVolume(radius: number)`: Returns the volume of a sphere.
+- `calculateSphereSurfaceArea(radius: number)`: Returns the surface area of a sphere.
+
+### Quadratic (`quadratic.ts`)
+- `solveQuadraticEquation(a: number, b: number, c: number)`: Solves a quadratic equation (returns real roots).
+
+### Vector (`vector.ts`)
+- `calculateVectorMagnitude(v: Vector2D)`: Returns length of the vector.
+- `calculateVectorDotProduct(v1: Vector2D, v2: Vector2D)`: Returns the dot product.
+- `addVectors(v1: Vector2D, v2: Vector2D)`: Adds two vectors together.
+
 ## Building & Docs
 
 Run `nx build math-lib` to build the library.
