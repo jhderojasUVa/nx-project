@@ -81,12 +81,27 @@ We enforce the [Conventional Commits](https://www.conventionalcommits.org/) spec
 - **Commit Hook**: husky will prevent commits that do not follow the standard.
 - **Example**: `feat: add math-lib utility functions`
 
-## 🤖 AI Agents
+## 🤖 AI Agents & Workflows
 
 This workspace includes definitions for AI Agents to assist with development and testing, located in `.github/agents/`:
 
 - **Developer Agent** (`developer.agent.md`): Responsible for writing clean, modular, and well-documented code.
-- **Tester Agent** (`tester.agent.md`): Acts as a QA engineer, writing comprehensive tests (using Vitest) and reviewing code.
+- **Tester Agent** (`tester.agent.md`): Acts as a QA engineer, writing comprehensive unit tests and reviewing code.
+
+### The Antigravity Collab Workflow
+
+This repository uses an **Antigravity workflow** (`antigravity.yaml`) that orchestrates the Developer and Tester agents to work together. 
+
+You can trigger this automated developer-tester loop to build an entire feature and immediately test it right here by typing the following command into your chat:
+
+```text
+/collab [description of the feature you want built]
+```
+
+**What happens?**
+1. The **Coordinator** tells the **Developer** to write the implementation code.
+2. The **Coordinator** tells the **Tester** to write validation tests and run them in the terminal.
+3. If tests fail, the **Developer** fixes them automatically until the **Tester** confirms success.
 
 ## Add new projects
 
