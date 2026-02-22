@@ -39,6 +39,10 @@ const area = calculateTriangleArea(10, 5); // 25
 - `calculateTriangleArea(base: number, height: number)`: Returns the area of a triangle.
 - `calculateTrianglePerimeter(sideA: number, sideB: number, sideC: number)`: Returns the perimeter of a given triangle.
 
+### Regular N-Sided Polygon (`polygon.ts`)
+- `calculatePolygonArea(sides: number, sideLength: number)`: Returns the area of a regular N-sided polygon.
+- `calculatePolygonPerimeter(sides: number, sideLength: number)`: Returns the perimeter of a regular N-sided polygon.
+
 ## Building & Docs
 
 Run `nx build math-lib` to build the library.
