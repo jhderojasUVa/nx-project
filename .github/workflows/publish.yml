@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0   # Full history is required so nx release can read all commits for semantic versioning
+          token: ${{ secrets.PAT_TOKEN }}  # PAT from repo owner to allow pushing to protected main
 
       - name: Setup Node
         uses: actions/setup-node@v4
