@@ -10,6 +10,18 @@ This library is built with [Nx](https://nx.dev), fully typed, and cleanly struct
 npm install @jhderojasUVa/math-lib
 ```
 
+## Usage Example
+
+Because the library splits logic geometrically, you can freely import specific shapes to keep bundle sizes minimal:
+
+```typescript
+import { calculateCircleCircumference } from '@jhderojasUVa/math-lib';
+import { calculateTriangleArea } from '@jhderojasUVa/math-lib';
+
+const circumference = calculateCircleCircumference(5); // 31.4159...
+const area = calculateTriangleArea(10, 5); // 25
+```
+
 ## Features
 
 ### Circle (`circle.ts`)
