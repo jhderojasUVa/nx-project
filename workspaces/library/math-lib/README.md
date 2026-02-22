@@ -10,6 +10,18 @@ This library is built with [Nx](https://nx.dev), fully typed, and cleanly struct
 npm install @jhderojasUVa/math-lib
 ```
 
+## Usage Example
+
+Because the library splits logic geometrically, you can freely import specific shapes to keep bundle sizes minimal:
+
+```typescript
+import { calculateCircleCircumference } from '@jhderojasUVa/math-lib';
+import { calculateTriangleArea } from '@jhderojasUVa/math-lib';
+
+const circumference = calculateCircleCircumference(5); // 31.4159...
+const area = calculateTriangleArea(10, 5); // 25
+```
+
 ## Features
 
 ### Circle (`circle.ts`)
@@ -26,6 +38,22 @@ npm install @jhderojasUVa/math-lib
 ### Triangle (`triangle.ts`)
 - `calculateTriangleArea(base: number, height: number)`: Returns the area of a triangle.
 - `calculateTrianglePerimeter(sideA: number, sideB: number, sideC: number)`: Returns the perimeter of a given triangle.
+
+### Regular N-Sided Polygon (`polygon.ts`)
+- `calculatePolygonArea(sides: number, sideLength: number)`: Returns the area of a regular N-sided polygon.
+- `calculatePolygonPerimeter(sides: number, sideLength: number)`: Returns the perimeter of a regular N-sided polygon.
+
+### Sphere (`sphere.ts`)
+- `calculateSphereVolume(radius: number)`: Returns the volume of a sphere.
+- `calculateSphereSurfaceArea(radius: number)`: Returns the surface area of a sphere.
+
+### Quadratic (`quadratic.ts`)
+- `solveQuadraticEquation(a: number, b: number, c: number)`: Solves a quadratic equation (returns real roots).
+
+### Vector (`vector.ts`)
+- `calculateVectorMagnitude(v: Vector2D)`: Returns length of the vector.
+- `calculateVectorDotProduct(v1: Vector2D, v2: Vector2D)`: Returns the dot product.
+- `addVectors(v1: Vector2D, v2: Vector2D)`: Adds two vectors together.
 
 ## Building & Docs
 
