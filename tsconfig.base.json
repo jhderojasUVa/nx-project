@@ -21,7 +21,7 @@
       "@jhderojasUva/math-lib": [
         "workspaces/library/math-lib/src/index.ts"
       ],
-      "@jhderojas/axios-lib": [
+      "@jhderojasUVa/axios-lib": [
         "workspaces/library/axios-lib/src/index.ts"
       ]
     }
